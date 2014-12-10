@@ -17,5 +17,9 @@ public class Health {
 		
 		return health == otherHealth.health;
 	}
+
+	public void lose(Health healthLosed) {
+		this.health -= healthLosed.health;
+	}
 	
 }
