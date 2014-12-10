@@ -4,13 +4,13 @@ package momix;
 public class Player {
 
 	private String name;
-	private Integer experience;
-	private Integer health;
-	final int INITIAL_HEALTH_POINTS = 10;
+	private Experience experience;
+	private Health health;
+	final Health INITIAL_HEALTH_POINTS = new Health(10);
 
 	public Player(String name) {
 		this.name = name;
-		this.experience = 0;
+		this.experience = new Experience();
 		health = INITIAL_HEALTH_POINTS;
 	}
 	
@@ -22,16 +22,16 @@ public class Player {
 		return name.equals(otherPlayer.name);
 	}
 
-	public Integer experience() {
+	public Experience experience() {
 		return experience;
 	}
 
-	public Integer health() {
+	public Health health() {
 		return health;
 	}
 
-	public void gainExperience(int experience) {
-		this.experience += experience;
+	public void gainExperience(Experience experience) {
+		this.experience.gain(experience);
 	}
 
 }

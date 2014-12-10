@@ -8,8 +8,9 @@ public class PlayerShould {
 
 	private static final String LUDO = "LUDO";
 	private static final Player A_PLAYER_NAMED_LUDO = new Player(LUDO);
-	private static final int NO_EXPERIENCE = 0;
-	private static final int FULL_HEALTH_BAR = 10;
+	private static final Experience NO_EXPERIENCE = new Experience();
+	private static final Health FULL_HEALTH_BAR = new Health(10);
+	private Experience TEN_EXPERIENCE = new Experience(10);
 
 	@Test public void
 	haveAName() {
@@ -33,8 +34,8 @@ public class PlayerShould {
 	@Test public void 
 	gainExperience() {
 		Player player = new Player(LUDO);
-		player.gainExperience(10);
+		player.gainExperience(new Experience(10));
 		
-		assertThat(player.experience()).isEqualTo(10);
+		assertThat(player.experience()).isEqualTo(TEN_EXPERIENCE );
 	}
 }
