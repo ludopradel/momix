@@ -21,5 +21,9 @@ public class Health {
 	public void lose(Health healthLosed) {
 		this.health -= healthLosed.health;
 	}
+
+	public void gain(Health healthGained) {
+		this.health += healthGained.health;
+	}
 	
 }

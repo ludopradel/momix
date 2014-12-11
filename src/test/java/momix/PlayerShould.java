@@ -1,5 +1,6 @@
 package momix;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,27 +15,31 @@ public class PlayerShould {
 	private static final Object HEALTH_MINUS_5 = new Health(5);
 	private Experience TEN_EXPERIENCE = new Experience(10);
 
+	private Player player;
+	
+	@Before
+	public void setup() {
+		player = new Player(LUDO);
+	}
+	
+	
 	@Test public void
 	haveAName() {
-		Player player = new Player(LUDO);
 		assertThat(player).isEqualTo(A_PLAYER_NAMED_LUDO);
 	}
 	
 	@Test public void
 	haveAnEmptyExperienceBar() {
-		Player player = new Player(LUDO);
 		assertThat(player.experience()).isEqualTo(NO_EXPERIENCE);
 	}
 
 	@Test public void
 	haveAFullHealthBar() {
-		Player player = new Player(LUDO);
 		assertThat(player.health()).isEqualTo(FULL_HEALTH_BAR);
 	}
 	
 	@Test public void 
 	gainExperience() {
-		Player player = new Player(LUDO);
 		player.gainExperience(new Experience(10));
 		
 		assertThat(player.experience()).isEqualTo(TEN_EXPERIENCE );
@@ -42,9 +47,16 @@ public class PlayerShould {
 	
 	@Test public void
 	looseHealth() {
-		Player player = new Player(LUDO);
 		player.loseHealth(new Health(5));
 		assertThat(player.health()).isEqualTo(HEALTH_MINUS_5);
 		
+	}
+	
+	@Test public void
+	gainHealth() {
+		player.loseHealth(new Health(5));
+		player.gainHealth(new Health(3));
+		
+		assertThat(player.health()).isEqualTo(new Health(8));
 	}
 }

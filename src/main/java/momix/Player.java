@@ -37,4 +37,8 @@ public class Player {
 	public void loseHealth(Health health) {
 		this.health.lose(health);
 	}
+
+	public void gainHealth(Health health) {
+		this.health.gain(health);
+	}
 }
