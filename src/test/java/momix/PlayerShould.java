@@ -59,4 +59,5 @@ public class PlayerShould {
 		
 		assertThat(player.health()).isEqualTo(new Health(8));
 	}
+	
 }
